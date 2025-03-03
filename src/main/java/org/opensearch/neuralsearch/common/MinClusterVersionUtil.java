@@ -6,8 +6,8 @@ package org.opensearch.neuralsearch.common;
 
 import com.google.common.collect.ImmutableMap;
 import org.opensearch.Version;
-import org.opensearch.knn.index.util.IndexUtil;
 import org.opensearch.neuralsearch.util.NeuralSearchClusterUtil;
+import org.opensearch.knn.index.util.IndexUtil;
 
 import java.util.Map;
 
