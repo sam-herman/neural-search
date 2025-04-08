@@ -19,7 +19,7 @@ curl -XPOST "http://localhost:9200/_plugins/_ml/model_groups/_register?pretty" -
 
 ## The response will include the model group ID for example:
 # {
-#   "model_group_id": "Z1eQf4oB5Vm0Tdw8EIP2"
+#   "model_group_id": "iJyKrJUBmvwE45_fMi8y"
 #   "status": "CREATED"
 # }
 
@@ -28,26 +28,26 @@ curl -XPOST "http://localhost:9200/_plugins/_ml/models/_register?pretty" -H 'Con
 {
   "name": "huggingface/sentence-transformers/msmarco-distilbert-base-tas-b",
   "version": "1.0.2",
-  "model_group_id": "ZyYlTpUBshYgm7pIiTSs",
+  "model_group_id": "iJyKrJUBmvwE45_fMi8y",
   "model_format": "TORCH_SCRIPT"
 }
 '
 
 ## The response will include the task_id for example:
 # {
-#   "task_id": "aVeif4oB5Vm0Tdw8zYO2"
+#   "task_id": "iZyKrJUBmvwE45_fci9Z"
 #   "status": "CREATED"
 # }
 
 # Check the status of the task to see if the model is ready and model id
-curl -XGET "http://localhost:9200/_plugins/_ml/tasks/cVeMb4kBJ1eYAeTMFFgj?pretty"
+curl -XGET "http://localhost:9200/_plugins/_ml/tasks/iZyKrJUBmvwE45_fci9Z?pretty"
 
 
 # Deploy the model
-curl -XPOST "http://localhost:9200/_plugins/_ml/models/aSYmTpUBshYgm7pILzRl/_deploy?pretty"
+curl -XPOST "http://localhost:9200/_plugins/_ml/models/ipyKrJUBmvwE45_fdS9Z/_deploy?pretty"
 
 # Test the model
-curl -XPOST "http://localhost:9200/_plugins/_ml/_predict/text_embedding/aSYmTpUBshYgm7pILzRl" -H 'Content-Type: application/json' -d'
+curl -XPOST "http://localhost:9200/_plugins/_ml/_predict/text_embedding/ipyKrJUBmvwE45_fdS9Z" -H 'Content-Type: application/json' -d'
 {
   "text_docs":[ "today is sunny"],
   "return_number": true,
@@ -62,7 +62,7 @@ curl -XPUT "http://localhost:9200/_ingest/pipeline/nlp-ingest-pipeline?pretty" -
   "processors": [
     {
       "text_embedding": {
-        "model_id": "aSYmTpUBshYgm7pILzRl",
+        "model_id": "ipyKrJUBmvwE45_fdS9Z",
         "field_map": {
           "text": "passage_embedding"
         }
@@ -183,7 +183,7 @@ curl -XGET "http://localhost:9200/my-nlp-index/_search?pretty" -H 'Content-Type:
     "neural": {
       "passage_embedding": {
         "query_text": "wild west",
-        "model_id": "aSYmTpUBshYgm7pILzRl",
+        "model_id": "ipyKrJUBmvwE45_fdS9Z",
         "k": 5
       }
     }
@@ -238,8 +238,8 @@ curl -XGET "http://localhost:9200/my-nlp-index/_search?pretty&search_pipeline=nl
           "neural": {
             "passage_embedding": {
               "query_text": "wild west",
-              "model_id": "aSYmTpUBshYgm7pILzRl",
-              "k": 2
+              "model_id": "ipyKrJUBmvwE45_fdS9Z",
+              "k": 5
             }
           }
         }
